@@ -1,0 +1,62 @@
+body {
+  background: #574bff;
+  font: 87.5%/1.5 "Spoqa Han Sans", Verdana;
+}
+
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+
+body.demo {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.demo-header {
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  background: hsla(0, 0%, 100%, 0.98);
+}
+
+.container {
+  margin-top: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.contents {
+  padding: 0.7em;
+}
+
+.contents a {
+  display: block;
+  padding: 0.5em 0.5em 0.5em 1.2em;
+  text-decoration: none;
+  font-size: 16px;
+  color: #574bff;
+}
+
+.contents a:hover {
+  color: #413d7e;
+}
+
+.contents a:focus {
+  outline: none;
+  color: #413d7e;
+  text-decoration: underline;
+}
+
+.y9-accordion {
+  box-shadow: 0 20px 60px hsla(253, 13%, 29%, 0.397);
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>중첩된 Accordion 컴포넌트 제작 (WAI-ARIA 반영 전)</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="./component/y9.Accordion.css">
+  <link rel="stylesheet" href="./component/theme/y9.Accordion-theme.css">
+  <script src="../assets/jquery.min.js"></script>
+  <script src="./component/y9.Accordion@0.0.2.js"></script>
+</head>
+<body class="demo">
+
+  <header class="demo-header" role="banner">
+    <a href="https://github.com/niawa/AOA" target="_blank" title="새 탭 열림">
+      <img src="https://cdn.rawgit.com/yamoo9/AOA/master/ASSETS/AOA_logo.svg" alt="" width="151" height="49">
+    </a>
+  </header>
+
+  <div class="container">
+
+    <!-- div, ul, ol 모두 사용 가능 -->
+    <ul class="demo-component">
+      <li>
+        <h3>
+          <button type="button">
+            <span class="y9-icon__news"></span> 뉴스 <span class="y9-icon__arrow is-right"></span>
+          </button>
+        </h3>
+        <div>
+          <ul class="list contents">
+            <li><a href="">부채대책 엇갈린 평가…'갭투자는 불가' VS '강남불패 고착화'</a></li>
+            <li><a href="">'靑문건 유출' 정호성 징역 2년6개월 구형…내달 15일 선고</a></li>
+            <li><a href="">6·19대책+8·2대책+신DTI 누적효과는…주택대출액 32.4%↓</a></li>
+            <li><a href="">'금감원 인사청탁 의혹' 농협금융회장 자택 등 압수수색</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <h3>
+          <button type="button">
+            <span class="y9-icon__sports"></span> 스포츠 <span class="y9-icon__arrow is-right"></span>
+          </button>
+        </h3>
+        <ul class="is-nested">
+          <li>
+            <h4>
+              <button type="button">
+                <span class="y9-icon__soccer"></span> 축구 <span class="y9-icon__arrow is-right"></span>
+              </button>
+            </h4>
+            <div>
+              <ul class="list contents">
+                <li><a href="">3293억 원?… ‘설’에 불과하지만 놀라운 케인의 가격표</a></li>
+                <li><a href="">[아스널-노리치] 모두가 놀란 18세 은케티아의 충격적인 등장</a></li>
+                <li><a href="">'거미손' 부폰, "올 시즌 후 은퇴하겠다"</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              <button type="button">
+                <span class="y9-icon__basketball"></span> 농구 <span class="y9-icon__arrow is-right"></span>
+              </button>
+            </h4>
+            <div>
+              <ul class="list contents">
+                <li><a href="">[댓글이벤트] KBL 역대 드래프트 순위별 최고의 선수</a></li>
+                <li><a href="">'3점슛 8방' 정호상, 고려대를 무너뜨리다</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>
+          <button type="button">
+            <span class="y9-icon__webtoon"></span> 웹툰<span class="y9-icon__arrow is-right"></span>
+          </button>
+        </h3>
+        <div>
+          <ul class="list contents">
+            <li><a href="">복학왕, 기안84</a></li>
+            <li><a href="">고수, 류기운/문정후</a></li>
+            <li><a href="">연놈, 상하</a></li>
+            <li><a href="">격기 3반, 이학</a></li>
+            <li><a href="">목욕의 신(재), 하일권</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+  <script>
+  (function(global, y9){
+    'use strict';
+
+    // 아코디언 객체 생성
+    new y9.Accordion('.demo-component', {
+      active_index: 0,
+      animate: true,
+      radio: true,
+    });
+
+    // 옵션 참고
+    var options= {
+      // 클래스 속성
+      active_class: 'is-active',
+      nested_class: 'is-nested',
+      animate_class: 'is-animate',
+      level_class: 'lv-',
+      // 활성화 인덱스
+      active_index: null,
+      // 모든 헤더 닫기
+      close_all: true,
+      // 라디오 기능
+      radio: false,
+      // 애니메이션 기능
+      animate: false,
+      duration: 300,
+      easing: 'swing', // 참고: http://easings.net/ko
+    };
+
+  })(window, window.y9);
+  </script>
+</body>
+</html>

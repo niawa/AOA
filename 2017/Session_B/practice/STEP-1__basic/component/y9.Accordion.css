@@ -1,0 +1,32 @@
+/*! y9.Accordion.css @ 2017, yamoo9.net */
+
+/* 아코디언 */
+.y9-accordion {}
+
+/* 아코디언 아이템 */
+.y9-accordion__item {}
+
+/* 아코디언 헤더 */
+.y9-accordion__heading {}
+
+/* 아코디언 해더 버튼 */
+.y9-accordion__button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+a.y9-accordion__button {
+  text-decoration: none;
+}
+button.y9-accordion__button {
+  border: none;
+}
+
+/* 아코디언 패널 */
+.y9-accordion__panel {
+  display: none;
+}
+
+/* 활성화 상태 */
+.y9-accordion__heading.is-active {}
+

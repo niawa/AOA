@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Accordion 컴포넌트 제작 (WAI-ARIA 반영 전)</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="./component/y9.Accordion.css">
+  <link rel="stylesheet" href="./component/theme/y9.Accordion-theme.css">
+  <script src="../assets/jquery.min.js"></script>
+  <script src="./component/y9.Accordion.js"></script>
+</head>
+<body class="demo">
+
+  <header class="demo-header" role="banner">
+    <a href="https://github.com/niawa/AOA" target="_blank" title="새 탭 열림">
+      <img src="https://cdn.rawgit.com/yamoo9/AOA/master/ASSETS/AOA_logo.svg" alt="" width="151" height="49">
+    </a>
+  </header>
+
+  <div class="container">
+
+    <!-- 아코디언 컴포넌트 -->
+    <div class="y9-accordion">
+
+      <!-- 아코디언 아이템 -->
+      <div class="y9-accordion__item">
+        <!-- 아코디언 헤더 -->
+        <div class="y9-accordion__heading">
+          <!-- 아코디언 헤더 버튼 -->
+          <a href class="y9-accordion__button">
+            <span class="y9-icon__news"></span> 뉴스 <span class="y9-icon__arrow is-right"></span>
+          </a>
+        </div>
+        <!-- 아코디언 패널 -->
+        <div class="y9-accordion__panel">
+          <ul class="list contents">
+            <li><a href="">부채대책 엇갈린 평가…'갭투자는 불가' VS '강남불패 고착화'</a></li>
+            <li><a href="">'靑문건 유출' 정호성 징역 2년6개월 구형…내달 15일 선고</a></li>
+            <li><a href="">6·19대책+8·2대책+신DTI 누적효과는…주택대출액 32.4%↓</a></li>
+            <li><a href="">'금감원 인사청탁 의혹' 농협금융회장 자택 등 압수수색</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="y9-accordion__item">
+        <div class="y9-accordion__heading">
+          <a href class="y9-accordion__button">
+            <span class="y9-icon__sports"></span> 스포츠 <span class="y9-icon__arrow is-right"></span>
+          </a>
+        </div>
+        <div class="y9-accordion__panel">
+          <ul class="list contents">
+            <li><a href="">[SPO 인포] ‘폭풍’ 케인+'우사인' SON…기록으로 본 토트넘 ‘투톱’</a></li>
+            <li><a href="">[더 타임즈] 에버튼 언스워스 “시간을 달라”</a></li>
+            <li><a href="">5파운드 지폐 주운 어린 허더즈필드 팬의 훈훈한 편지 화제</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="y9-accordion__item">
+        <div class="y9-accordion__heading">
+          <a href class="y9-accordion__button">
+            <span class="y9-icon__webtoon"></span> 웹툰<span class="y9-icon__arrow is-right"></span>
+          </a>
+        </div>
+        <div class="y9-accordion__panel">
+          <ul class="list contents">
+            <li><a href="">복학왕, 기안84</a></li>
+            <li><a href="">고수, 류기운/문정후</a></li>
+            <li><a href="">연놈, 상하</a></li>
+            <li><a href="">격기 3반, 이학</a></li>
+            <li><a href="">목욕의 신(재), 하일권</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div> <!--/ .y9-accordion -->
+
+  </div>
+
+  <script>
+  (function(global, y9){
+    'use strict';
+
+    // 아코디언 객체 생성
+    new y9.Accordion('.y9-accordion');
+
+    // 옵션 참고
+    var options= {
+      active_class : 'is-active',
+      active_index : 0,
+      close_all    : false,
+      radio        : true,
+      animate      : true,
+      duration     : 400,
+      easing       : 'easeOutSine'
+    };
+
+  })(window, window.y9);
+  </script>
+</body>
+</html>
