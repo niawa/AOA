@@ -1,7 +1,7 @@
 ###### Session B
 # WAI-ARIA를 반영하여 접근성을 향상시킨 UI 컴포넌트 제작
 
-**아코디언(Accordion) 컴포넌트** 제작 편 by 강사 [야무](https://github.com/yamoo9)
+**아코디언(Accordion) 컴포넌트** 제작 편 by 강사 [야무](https://github.com/yamoo9) | [키노트](http://slides.com/yamoo9/aoa)
 
 Accordion 컴포넌트에 WAI-ARIA 국제표준 기술을 반영하는 과정을 스텝 별로 실습하며 커스텀 컴포넌트 접근성 향상 방법을 공부합니다.
 
@@ -62,7 +62,7 @@ W3C WAI-ARIA 표준 기술명세서에 아코디언 역할(role)은 제공되지
 
 역할 | 속성/상태 | 사용 가능한 요소 | 설명
 --------- | -------------- | ------------- | ------------
-presentation | | `div`, `ul` `dl` 등 | HTML 요소의 본래 역할을 표현으로 변경
+presentation | | `div`, `ul`, `dl` 등 | HTML 요소의 본래 역할을 표현으로 변경
 heading | | `div`, `h3`, `dt` 등 | HTML 요소를 아코디언 헤더로 사용
  | | `aria-level="3"` | | 섹션 제목(레벨2) 하위에 위치하므로 레벨3 설정
 button | | `a`, `button` 등 | 펼침/접힘을 처리하는 아코디언 헤더 내부 버튼 역할 설정

@@ -1,0 +1,46 @@
+/*! y9.Accordion.css @ 2017, yamoo9.net */
+
+/* 아코디언: div, dl, ul, ol */
+ul.y9-accordion,
+ol.y9-accordion,
+ul.is-nested,
+ol.is-nested {
+  list-style-type: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+.y9-accordion {}
+
+/* 아코디언 아이템 */
+.y9-accordion__item {}
+
+/* 아코디언 헤더 */
+.y9-accordion__heading {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 아코디언 해더 버튼 */
+a.y9-accordion__button {
+  text-decoration: none;
+}
+button.y9-accordion__button {
+  width: 100%;
+  border: 0;
+}
+.y9-accordion__button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  text-align: left;
+}
+
+/* 아코디언 패널 */
+.y9-accordion__panel {
+  display: none;
+}
+
+/* 활성화 상태 */
+.y9-accordion__heading.is-active {}
+

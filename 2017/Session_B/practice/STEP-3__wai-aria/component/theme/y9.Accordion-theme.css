@@ -1,0 +1,118 @@
+/*! y9.Accordion-theme.css @ 2017, yamoo9.net */
+
+/* 아코디언 */
+.y9-accordion {
+  width: 100%;
+  background: #ffffff;
+}
+
+/* 아코디언 아이템 */
+.y9-accordion__item {}
+
+/* 아코디언 헤더 */
+.y9-accordion__heading {}
+
+/* 아코디언 해더 버튼 */
+.y9-accordion__item .y9-accordion__button {
+  display: block;
+  border-bottom: 1px solid #fff;
+  padding: 1.4em 1.2em;
+  background: #f6f6f6;
+  color: #574bff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.y9-accordion > .y9-accordion__item:last-child .y9-accordion__button {
+  border-bottom: none;
+}
+
+/* 아코디언 패널 */
+.y9-accordion__panel {
+  border-bottom: 1px solid #f6f6f6;
+}
+
+
+/* 호버 상태 */
+.y9-accordion__button:hover {
+  background: #cfd2e4;
+}
+
+/* 활성화 상태 */
+.is-active .y9-accordion__button {
+  background: #ececec;
+}
+
+.y9-accordion__heading.is-active .y9-icon__arrow {
+  transform: rotate(180deg);
+}
+
+/* 포커스 상태 */
+.is-active .y9-accordion__button:focus,
+.y9-accordion__button:focus {
+  outline: 1px solid currentColor;
+}
+
+/* 중첩 상태 */
+.is-nested .y9-accordion__button::before {
+  padding-left: 0.3em;
+  content: '∟';
+}
+
+
+/* 아이콘 디자인
+ * -------------------------------------------------------------------- */
+
+/* 확장 아이콘 */
+[class*="y9-icon__"] {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: -5px;
+}
+
+.y9-icon__arrow {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  background: url("./icons/expand-arrow.svg") no-repeat left top;
+}
+
+.y9-icon__news {
+  background: url("./icons/news.svg") no-repeat left top;
+}
+.y9-icon__sports {
+  background: url("./icons/running.svg") no-repeat left top;
+}
+.y9-icon__soccer {
+  background: url("./icons/soccer.svg") no-repeat left top;
+}
+.y9-icon__basketball {
+  background: url("./icons/basketball.svg") no-repeat left top;
+}
+.y9-icon__webtoon {
+  background: url("./icons/speech-bubble.svg") no-repeat left top;
+}
+
+/* 아이콘 레이아웃 */
+.is-right {
+  float: right;
+}
+
+.is-nested [class*="y9-icon__"]:not(.y9-icon__arrow) {
+  margin-left: 0.3em;
+}
+
+
+
+/* 애니메이션
+ * -------------------------------------------------------------------- */
+
+.is-animate .y9-accordion__button {
+  transition: all 0.2s ease;
+}
+
+.is-animate .y9-icon__arrow {
+  transition: transform 0.2s ease-in-out;
+}
