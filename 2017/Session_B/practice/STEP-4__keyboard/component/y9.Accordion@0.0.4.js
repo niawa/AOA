@@ -1,11 +1,11 @@
+/*! y9.Accordion@0.0.4.js @ 2017, yamoo9.net */
+
 /**
- * y9.Accordion
- * @version 0.0.3
+ * y9.Accordion UI Component
+ * @version 0.0.4
  * @author yamoo9 <yamoo9@naver.com>
  * @todo WAI-ARIA 키보드 인터랙션
  */
-
-
 
 ;(function(global, $, y9){
   'use strict';
@@ -41,6 +41,7 @@
     }
   };
 
+  // 생성 ID
   var generated_id = 0;
 
   /**
@@ -187,6 +188,7 @@
     /**
      * 컴포넌트 아이템 반환
      * @public
+     * @method
      * @param {Number} index - 개별 아이템 인덱스
      * @returns {AccordionItem}
      */
@@ -205,6 +207,7 @@
     /**
      * 중첩된 아코디언 컴포넌트 아이템 반환
      * @public
+     * @method
      * @param {Number} index - 개별 아이템 인덱스
      * @param {Number} sub_index - 중첩된 아코디언 인덱스
      * @returns {Array|SubAccordion}
@@ -228,6 +231,7 @@
     /**
      * 컴포넌트 아이템 활성화
      * @public
+     * @method
      * @param {Number} index - 개별 아이템 인덱스
      */
     active: function(index){
@@ -239,6 +243,7 @@
     /**
      * 컴포넌트 아이템 비활성화
      * @public
+     * @method
      */
     deactive: function(){
       var pre = this._pre;
@@ -250,6 +255,7 @@
     /**
      * 컴포넌트 아이템 활성화 개수 1개인지 검증
      * @public
+     * @method
      * @returns {Boolean}
      */
     isPanelOnlyOneOpened: function(){
@@ -263,6 +269,7 @@
     /**
      * 컴포넌트 pre, current 업데이트
      * @public
+     * @method
      */
     updatePreCurrent: function(index){
       for ( var item, items=this._items, i=0, l=items.length; i<l; i++ ) {
@@ -278,6 +285,7 @@
     /**
      * 열린 아이템 카운트 개수 반환
      * @public
+     * @method
      * @returns {Number}
      */
     openedItemsCount: function(){
@@ -291,11 +299,52 @@
       return opened_count;
     },
 
+    /**
+     * 이전 아이템 포커스 (더 이상 이전이 없으면 마지막 아이템으로 포커스 이동)
+     * @public
+     * @method
+     */
+    prev: function(){
+      var last_index = this.items().length - 1;
+      this._current = --this._current < 0 ? last_index : this._current;
+      this.items( this._current ).$button.focus();
+    },
+
+    /**
+     * 다음 아이템 포커스 (더 이상 다음이 없으면 처음 아이템으로 포커스 이동)
+     * @public
+     * @method
+     */
+    next: function(){
+      var last_index = this.items().length - 1;
+      this._current = ++this._current > last_index ? 0 : this._current;
+      this.items( this._current ).$button.focus();
+    },
+
+    /**
+     * 처음 아이템 포커스
+     * @public
+     * @method
+     */
+    first: function(){
+      this.items(0).$button.focus();
+    },
+
+    /**
+     * 마지막 아이템 포커스
+     * @public
+     * @method
+     */
+    last: function(){
+      this.items( this.items().length - 1 ).$button.focus();
+    },
+
   });
 
   /**
    * y9.Accordion 클래스 기본 옵션
    * @public
+   * @prop
    */
   y9.Accordion.defaults = defaults;
 
@@ -460,6 +509,7 @@
     _bind: function(){
       // 헤더 버튼 클릭하면 toggle() 메서드 실행
       this.$button.on('click', $.proxy(this, 'toggle'));
+      // 키보드 인터랙션
       this.$button.on('keyup', $.proxy(this, '_keyInteraction'));
     },
 
@@ -482,62 +532,38 @@
     /**
      * 키보드 인터랙션
      * @private
-     * @todo 코드 리펙토링
      */
     _keyInteraction: function(e){
       e.preventDefault();
 
-      // PageUp    : 33
-      // PageDown  : 34
-      // Home      : 36
-      // End       : 35
-      // ArrowUp   : 38
-      // ArrowDown : 40
-      var key = e.which || e.keyCode;
-
-      var options      = this.options,
-          focus_class  = options.focus_class,
-          parent       = this._parent,
-          current      = parent._current,
-          last_index   = parent.items().length - 1,
-          $move_focus  = null;
+      var key     = e.which || e.keyCode;
+      var options = this.options;
+      var parent  = this._parent;
 
       switch ( key ) {
+        // ArrowUp: 38
         case 38:
-          parent._current = --current < 0 ? last_index : current;
-          $move_focus = parent.items( parent._current ).$button;
-          $move_focus.focus();
-        break;
-
+          parent.prev(); break;
+        // ArrowDown: 40
         case 40:
-          parent._current = ++current > last_index ? 0 : current;
-          $move_focus = parent.items( parent._current ).$button;
-          $move_focus.focus();
-        break;
-
+          parent.next(); break;
+        // Home: 36
         case 36:
-          $move_focus = parent.items(0).$button;
-          $move_focus.focus();
-        break;
+          parent.first(); break;
+        // End: 35
         case 35:
-          $move_focus = parent.items(last_index).$button;
-          $move_focus.focus();
+          parent.last(); break;
       }
 
       // Chrome 브라우저에서 ctrl + PageUp/Down 사용을 탭간 탐색 단축키로 사용하고 있어,
       // 다른 단축키를 사용해야 함. shift + PageUp/Down으로 대체.
-      var grand_parent, grand_last_index;
+      // PageUp: 33
       if ( parent.level === 2 && e.shiftKey && key === 33) {
-        grand_parent = this._parent.$el.parents('.' + options.structure.accordion).data('component');
-        grand_last_index = grand_parent.items().length - 1;
-        grand_parent._current = --grand_parent._current < 0 ? grand_last_index : grand_parent._current;
-        grand_parent.items( grand_parent._current ).$button.focus();
+        this.rootPrev();
       }
+      // PageDown: 34
       if ( parent.level === 2 && e.shiftKey && key === 34) {
-        grand_parent = this._parent.$el.parents('.' + options.structure.accordion).data('component');
-        grand_last_index = grand_parent.items().length - 1;
-        grand_parent._current = ++grand_parent._current > grand_last_index ?  0 : grand_parent._current;
-        grand_parent.items( grand_parent._current ).$button.focus();
+        this.rootNext();
       }
 
     },
@@ -642,6 +668,26 @@
      */
     isExpanded: function(){
       return this.$panel.is(':visible');
+    },
+
+     /**
+     * 루트 아코디언 이전 아이템 포커스 (더 이상 이전이 없으면 마지막 아이템으로 포커스 이동)
+     * @public
+     * @method
+     */
+    rootPrev: function(){
+      var root_parent = this._parent.$el.parents('.' + this.options.structure.accordion).data('component');
+      root_parent.prev();
+    },
+
+    /**
+     * 루트 아코디언 다음 아이템 포커스 (더 이상 다음이 없으면 처음 아이템으로 포커스 이동)
+     * @public
+     * @method
+     */
+    rootNext: function(){
+      var root_parent = this._parent.$el.parents('.' + this.options.structure.accordion).data('component');
+      root_parent.next();
     },
 
   });
