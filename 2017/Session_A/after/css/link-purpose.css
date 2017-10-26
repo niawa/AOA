@@ -1,0 +1,12 @@
+@charset "utf-8";
+body {
+  margin: 50px;
+}
+ul {
+  list-style: none;
+}
+ul a {
+  display: inline-block;
+  margin: 10px 0px 10px 10px;
+  right: 0px;
+}

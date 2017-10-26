@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+/* hidden content */
+
+.readable-hidden,
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.btn-login {
+  height: 30px;
+  border: 0;
+  padding: 5px 15px;
+  color: #fff;
+  background: #333;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+
+/* login */
+
+.login {
+  background: radial-gradient(circle at top right, #ffc848, #ff8208);
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 250px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  display: none;
+}
+
+.login[aria-hidden="false"] {
+  display: block;
+}
+
+.login-heading {
+  margin: 0 0 10px 10px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ff0;
+}
+
+.login-form {
+  background: #fff;
+  border-radius: 5px 5px 0 0;
+  padding: 15px;
+}
+
+.login-form fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.login-form label {
+  display: inline-block;
+  width: 4em;
+}
+
+.login-form input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #aaa;
+  font-size: 1.2rem;
+  padding: 1px 1px 1px 5px;
+}
+
+.user-pw {
+  margin-top: 10px;
+}
+
+.login-form button {
+  height: 30px;
+  border: 0;
+  padding: 5px 10px;
+  color: #fff;
+  background: #ff8208;
+  border-radius: 5px;
+  margin-top: 15px;
+  float: right;
+  cursor: pointer;
+}

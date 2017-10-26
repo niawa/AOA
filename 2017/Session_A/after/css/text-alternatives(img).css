@@ -1,0 +1,17 @@
+@charset "utf-8";
+div {
+  width: 30%;
+  margin: 50px auto;
+}
+
+div img {
+  max-width: 100%;
+  height: auto;
+}
+
+div span {
+  display: block;
+  font-family: 'Noto Sans';
+  font-size: 1.2em;
+  text-align: center;
+}

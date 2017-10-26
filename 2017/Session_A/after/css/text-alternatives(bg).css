@@ -1,0 +1,31 @@
+@charset "utf-8";
+body {
+  margin: 50px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 130px;
+}
+
+.container * {
+  display: block;
+}
+
+.facebook span,
+.twitter span {
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.facebook span {
+  background-image: url("images/facebook.png");
+}
+
+.twitter span {
+  background-image: url("images/twitter.png");
+}
