@@ -365,6 +365,29 @@ AccordionItem.prototype
 <script src="./component/y9.Accordion.js"></script>
 ```
 
+사용자는 아코디언 컴포넌트 생성하는 구문을 다음과 같이 사용한다.
+
+```html
+<script>
+  // 첫번째 인자는 컴포넌트화 하고자 하는 DOM 요소의 선택자를 문자열로 설정한다.
+  new y9.Accordion('.y9-accordion');
+</script>
+```
+
+컴포넌트 옵션을 추가할 경우는 아래와 같이 사용한다.
+
+```html
+<script>
+  // 두번째 인자로 옵션 객체를 제공하면 컴포넌트 초기화 과정에서 반영된다.
+  new y9.Accordion('.y9-accordion', {
+    // 옵션
+    radio: true,
+    close_all: false
+  });
+</script>
+```
+
+
 `y9.Accordion.js` 파일에 작성된 내용을 구분하여 정리하면 다음과 같다.
 
 <details>
