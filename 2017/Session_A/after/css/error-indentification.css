@@ -1,0 +1,15 @@
+@charset "utf-8";
+body {
+  margin: 50px;
+}
+
+#error-text {
+  color: #f00;
+}
+
+label,
+input,
+button {
+  display: block;
+  margin: 15px 0;
+}

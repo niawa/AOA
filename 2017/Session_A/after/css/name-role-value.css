@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/* 레이아웃 */
+
+.container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 50% 20%;
+  grid-template-rows: 10vh 10vh 70vh 10vh;
+  grid-template-areas: "header       header" "navigation   search" "main         aside" "footer       footer"
+}
+
+.container * {
+  padding: 1em;
+}
+
+.header {
+  grid-area: header;
+  background: #ccc;
+  item-self: center;
+}
+
+.main-menu {
+  grid-area: navigation;
+  background: #ffc;
+}
+
+.search {
+  grid-area: search;
+  background: #eee;
+}
+
+.main-content {
+  grid-area: main;
+  background: #ddd;
+}
+
+.sidebar {
+  grid-area: aside;
+  background: #bbb;
+}
+
+.footer {
+  grid-area: footer;
+  background: #ccc;
+}
