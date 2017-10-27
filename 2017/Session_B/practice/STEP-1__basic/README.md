@@ -1,5 +1,13 @@
 ###### [Session B] ‣ WAI-ARIA를 반영하여 접근성을 향상시킨 UI 컴포넌트 제작
 
+# 진행 목차
+
+1. 아코디언 컴포넌트 구성
+1. [중첩된 아코디언 컴포넌트](./practice/STEP-2__nested/)
+1. [아코디언 컴포넌트에 WAI-ARIA 적용](./practice/STEP-3__wai-aria/)
+1. [아코디언 컴포넌트에 키보드 인터랙션 적용](./practice/STEP-4__keyboard/)
+1. [아코디언 컴포넌트 jQuery 플러그인화](./practice/STEP-5__jquery-plugin/)
+
 ## **아코디언(Accordion) 컴포넌트** 제작 편 **STEP-01**
 
 아코디언 컴포넌트 제작에 필요한 HTML/CSS/JavaScript 패턴을 살펴보고, 구현 과정을 실습한다.

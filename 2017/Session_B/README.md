@@ -153,11 +153,11 @@ End        |  `fn` + `→`
 
 ### STEP별 실습
 
-- [STEP-01 아코디언 컴포넌트 구성](./practice/STEP-1__badic/)
-- [STEP-02 중첩된 아코디언 컴포넌트](./practice/STEP-2__nested/)
-- [STEP-03 아코디언 컴포넌트에 WAI-ARIA 적용](./practice/STEP-3__wai-aria/)
-- [STEP-04 아코디언 컴포넌트에 키보드 인터랙션 적용](./practice/STEP-4__keyboard/)
-- [STEP-05 아코디언 컴포넌트 jQuery 플러그인화](./practice/STEP-5__jquery-plugin/)
+1. [아코디언 컴포넌트 구성](./practice/STEP-1__basic/)
+1. [중첩된 아코디언 컴포넌트](./practice/STEP-2__nested/)
+1. [아코디언 컴포넌트에 WAI-ARIA 적용](./practice/STEP-3__wai-aria/)
+1. [아코디언 컴포넌트에 키보드 인터랙션 적용](./practice/STEP-4__keyboard/)
+1. [아코디언 컴포넌트 jQuery 플러그인화](./practice/STEP-5__jquery-plugin/)
 
 <small>[목차로 이동 ↑](#목차)</small>
 
