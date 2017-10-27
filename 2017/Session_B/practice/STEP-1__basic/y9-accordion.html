@@ -9,13 +9,13 @@
   <link rel="stylesheet" href="./component/y9.Accordion.css">
   <link rel="stylesheet" href="./component/theme/y9.Accordion-theme.css">
   <script src="../assets/jquery.min.js"></script>
-  <script src="./component/y9.Accordion.js"></script>
+  <script src="./component/y9.Accordion@0.0.1.js"></script>
 </head>
 <body class="demo">
 
   <header class="demo-header" role="banner">
     <a href="https://github.com/niawa/AOA" target="_blank" title="새 탭 열림">
-      <img src="https://cdn.rawgit.com/yamoo9/AOA/master/ASSETS/AOA_logo.svg" alt="" width="151" height="49">
+      <img src="../assets/AOA_logo.svg" alt="접근성 오픈 아카데미 GitHub 저장소" width="151" height="49">
     </a>
   </header>
 
@@ -89,13 +89,22 @@
 
     // 옵션 참고
     var options= {
-      active_class : 'is-active',
-      active_index : 0,
-      close_all    : false,
-      radio        : true,
-      animate      : true,
-      duration     : 400,
-      easing       : 'easeOutSine'
+      // 활성화 클래스 속성
+      active_class: 'is-active',
+      // 활성화 인덱스
+      active_index: null,
+      // 모든 패널 접음
+      close_all: true,
+      // 라디오 기능 활성화
+      radio: false,
+      // 애니메이션 활성화
+      animate: false,
+      // 애니메이션 지속시간
+      duration: 300,
+      // 애니메이션 이징
+      // jquery.easing 사용 가능
+      // 참고: http://easings.net/ko
+      easing: 'swing',
     };
 
   })(window, window.y9);

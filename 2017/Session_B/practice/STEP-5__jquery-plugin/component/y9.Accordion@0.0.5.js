@@ -1,12 +1,11 @@
+/*! y9.Accordion@0.0.5.js @ 2017, yamoo9.net */
+
 /**
- * y9.Accordion
- * @version 0.0.3
+ * y9.Accordion UI Component
+ * @version 0.0.5
  * @author yamoo9 <yamoo9@naver.com>
- * @todo 아코디언 컴포넌트 생성 ID 추가
- * @todo WAI-ARIA 역할(role), 속성/상태(aria-*) 설정/업데이트
+ * @todo jQuery 플러그인화
  */
-
-
 
 ;(function(global, $, y9){
   'use strict';
@@ -41,6 +40,8 @@
     easing: 'swing',
     // WAI-ARIA 활성화
     aria: true,
+    // 키보드 인터랙션 활성화
+    shortkut_key: true,
     /// 구조 클래스 속성 ---------------
     structure: {
       accordion: 'y9-accordion',
@@ -52,6 +53,7 @@
     },
   };
 
+  // 생성 ID
   var generated_id = 0;
 
   /**
@@ -146,7 +148,7 @@
       if ( $.type(index) === 'number' && this.level === 1 ) {
         this.active(options.active_index);
       }
-      if ( $.type(index) !== 'number' && !options.close_all) {
+      if ( $.type(index) !== 'number' && !options.close_all && this.level === 1) {
         this.active(0);
       }
 
@@ -162,6 +164,11 @@
       var $el = this.$el;
       var options = this.options;
       var structure = options.structure;
+
+      // ——————————————————————————————————————
+      // 컴포넌트 참조
+      $el.data('component', this);
+
       // ——————————————————————————————————————
       // 구조 설정
       if (this.level === 1) {
@@ -214,6 +221,7 @@
     /**
      * 컴포넌트 아이템 반환
      * @public
+     * @method
      * @param {Number} index - 개별 아이템 인덱스
      * @returns {AccordionItem}
      */
@@ -232,6 +240,7 @@
     /**
      * 중첩된 아코디언 컴포넌트 아이템 반환
      * @public
+     * @method
      * @param {Number} index - 개별 아이템 인덱스
      * @param {Number} sub_index - 중첩된 아코디언 인덱스
      * @returns {Array|SubAccordion}
@@ -255,6 +264,7 @@
     /**
      * 컴포넌트 아이템 활성화
      * @public
+     * @method
      * @param {Number} index - 개별 아이템 인덱스
      */
     active: function(index){
@@ -266,6 +276,7 @@
     /**
      * 컴포넌트 아이템 비활성화
      * @public
+     * @method
      */
     deactive: function(){
       var pre = this._pre;
@@ -277,6 +288,7 @@
     /**
      * 컴포넌트 아이템 활성화 개수 1개인지 검증
      * @public
+     * @method
      * @returns {Boolean}
      */
     isPanelOnlyOneOpened: function(){
@@ -290,6 +302,7 @@
     /**
      * 열린 아이템 카운트 개수 반환
      * @public
+     * @method
      * @returns {Number}
      */
     openedItemsCount: function(){
@@ -303,11 +316,52 @@
       return opened_count;
     },
 
+    /**
+     * 이전 아이템 포커스 (더 이상 이전이 없으면 마지막 아이템으로 포커스 이동)
+     * @public
+     * @method
+     */
+    prev: function(){
+      var last_index = this.items().length - 1;
+      this._current = --this._current < 0 ? last_index : this._current;
+      this.items( this._current ).$button.focus();
+    },
+
+    /**
+     * 다음 아이템 포커스 (더 이상 다음이 없으면 처음 아이템으로 포커스 이동)
+     * @public
+     * @method
+     */
+    next: function(){
+      var last_index = this.items().length - 1;
+      this._current = ++this._current > last_index ? 0 : this._current;
+      this.items( this._current ).$button.focus();
+    },
+
+    /**
+     * 처음 아이템 포커스
+     * @public
+     * @method
+     */
+    first: function(){
+      this.items(0).$button.focus();
+    },
+
+    /**
+     * 마지막 아이템 포커스
+     * @public
+     * @method
+     */
+    last: function(){
+      this.items( this.items().length - 1 ).$button.focus();
+    },
+
   });
 
   /**
    * y9.Accordion 클래스 기본 옵션
    * @public
+   * @prop
    */
   y9.Accordion.defaults = defaults;
 
@@ -472,6 +526,10 @@
     _bind: function(){
       // 헤더 버튼 클릭하면 toggle() 메서드 실행
       this.$button.on('click', $.proxy(this, 'toggle'));
+      // 키보드 인터랙션
+      if ( this.options.shortkut_key ) {
+        this.$button.on('keyup', $.proxy(this, '_keyInteraction'));
+      }
     },
 
     /**
@@ -488,6 +546,45 @@
           accordionItem.nested.push( new y9.Accordion(element, options, parent.level + 1) );
         });
       }
+    },
+
+    /**
+     * 키보드 인터랙션
+     * @private
+     */
+    _keyInteraction: function(e){
+      e.preventDefault();
+
+      var key     = e.which || e.keyCode;
+      var options = this.options;
+      var parent  = this._parent;
+
+      switch ( key ) {
+        // ArrowUp: 38
+        case 38:
+          parent.prev(); break;
+        // ArrowDown: 40
+        case 40:
+          parent.next(); break;
+        // Home: 36
+        case 36:
+          parent.first(); break;
+        // End: 35
+        case 35:
+          parent.last(); break;
+      }
+
+      // Chrome 브라우저에서 ctrl + PageUp/Down 사용을 탭간 탐색 단축키로 사용하고 있어,
+      // 다른 단축키를 사용해야 함. shift + PageUp/Down으로 대체.
+      // PageUp: 33
+      if ( parent.level === 2 && e.shiftKey && key === 33) {
+        this.rootPrev();
+      }
+      // PageDown: 34
+      if ( parent.level === 2 && e.shiftKey && key === 34) {
+        this.rootNext();
+      }
+
     },
 
     /**
@@ -517,7 +614,6 @@
 
       if (options.aria) {
         this.$button.attr({ 'aria-expanded': true });
-
         if ( !options.close_all && parent.openedItemsCount() === 1 ) {
           this.$button.attr('aria-disabled', true);
         }
@@ -592,7 +688,45 @@
       return this.$panel.is(':visible');
     },
 
+     /**
+      * 루트 아코디언 이전 아이템 포커스 (더 이상 이전이 없으면 마지막 아이템으로 포커스 이동)
+      * @public
+      * @method
+     */
+    rootPrev: function(){
+      var root_parent = this._parent.$el.parents('.' + this.options.structure.accordion).data('component');
+      root_parent.prev();
+    },
+
+    /**
+     * 루트 아코디언 다음 아이템 포커스 (더 이상 다음이 없으면 처음 아이템으로 포커스 이동)
+     * @public
+     * @method
+     */
+    rootNext: function(){
+      var root_parent = this._parent.$el.parents('.' + this.options.structure.accordion).data('component');
+      root_parent.next();
+    },
+
   });
 
 
 })(window, window.jQuery, (window.y9 = window.y9 || {}));
+
+
+// jQuery 플러그인 쉘
+;(function(global, $, y9){
+  'use strict';
+
+  $.fn.y9Accordion = function(options){
+    var $accordion = this;
+    options = $.extend(true, $.fn.y9Accordion.defaults, options);
+    return this.each(function(index, accordion){
+      var $item = $accordion.eq(index);
+      $item.data('y9-accordion', new y9.Accordion(accordion, options));
+    });
+  };
+
+  $.fn.y9Accordion.defaults = y9.Accordion.defaults;
+
+})(window, window.jQuery, window.y9);
