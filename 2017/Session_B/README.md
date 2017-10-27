@@ -12,6 +12,7 @@ Accordion 컴포넌트에 WAI-ARIA 국제표준 기술을 반영하는 과정을
   - [Accordion 컴포넌트 접근성 향상을 위한 WAI-ARIA 디자인패턴](#accordion-컴포넌트-접근성-향상을-위한-wai-aria-디자인패턴)
     - [WAI-ARIA 역할(Roles), 속성(Properties), 상태(States)](#wai-aria-역할roles-속성properties-상태states)
     - [키보드 인터랙션](#키보드-인터랙션)
+  - [STEP별 실습](#step별-실습)
   - [참고자료](#참고자료)
 
 
@@ -150,6 +151,17 @@ End        |  `fn` + `→`
 
 <br>
 
+### STEP별 실습
+
+- [STEP-01 아코디언 컴포넌트 구성](./practice/STEP-1__badic/)
+- [STEP-02 중첩된 아코디언 컴포넌트](./practice/STEP-2__nested/)
+- [STEP-03 아코디언 컴포넌트에 WAI-ARIA 적용](./practice/STEP-3__wai-aria/)
+- [STEP-04 아코디언 컴포넌트에 키보드 인터랙션 적용](./practice/STEP-4__keyboard/)
+- [STEP-05 아코디언 컴포넌트 jQuery 플러그인화](./practice/STEP-5__jquery-plugin/)
+
+<small>[목차로 이동 ↑](#목차)</small>
+
+<br>
 
 ## 참고자료
 
@@ -160,3 +172,5 @@ End        |  `fn` + `→`
 - [jQuery Accessible Accordion system, using ARIA](https://a11y.nicolas-hoffmann.net/accordion/)
 - [wai-aria-accordion per w3c best practice spec](https://gist.github.com/dfkaye/c865365e4581548d348a5bfcd586c8be)
 - [맥북/애플 키보드에서 Home, End, Page Up, Page Down 키 사용하기](http://macnews.tistory.com/4067)
+
+<small>[목차로 이동 ↑](#목차)</small>
