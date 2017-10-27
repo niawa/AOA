@@ -2,11 +2,11 @@
 
 # 진행 목차
 
-1. [아코디언 컴포넌트 구성](./practice/STEP-1__basic/)
+1. [아코디언 컴포넌트 구성](../STEP-1__basic/)
 1. 중첩된 아코디언 컴포넌트
-1. [아코디언 컴포넌트에 WAI-ARIA 적용](./practice/STEP-3__wai-aria/)
-1. [아코디언 컴포넌트에 키보드 인터랙션 적용](./practice/STEP-4__keyboard/)
-1. [아코디언 컴포넌트 jQuery 플러그인화](./practice/STEP-5__jquery-plugin/)
+1. [아코디언 컴포넌트에 WAI-ARIA 적용](../STEP-3__wai-aria/)
+1. [아코디언 컴포넌트에 키보드 인터랙션 적용](../STEP-4__keyboard/)
+1. [아코디언 컴포넌트 jQuery 플러그인화](../STEP-5__jquery-plugin/)
 
 ## **아코디언(Accordion) 컴포넌트** 제작 편 **STEP-02**
 
