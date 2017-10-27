@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>키보드 인터랙션 기능이 추가된 Accordion 컴포넌트 제작</title>
+  <title>jQuery 플러그인 Accordion 컴포넌트 제작</title>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="./component/y9.Accordion.css">
   <link rel="stylesheet" href="./component/theme/y9.Accordion-theme.css">
   <script src="../assets/jquery.min.js"></script>
-  <script src="./component/y9.Accordion@0.0.4.js"></script>
+  <script src="./component/y9.Accordion@0.0.5.js"></script>
 </head>
 <body class="demo">
 
@@ -94,19 +94,14 @@
       </li>
     </ul>
 
+  </div>
+
   <script>
   (function(global, y9){
     'use strict';
 
-    // 아코디언 객체 생성
-    global.y9_acc = new y9.Accordion('.demo-component', {
-      radio: true,
-      close_all: false,
-      animate: true,
-    });
-
-    // 옵션 참고
-    var options= {
+    // 모든 플러그인의 기본 값을 바꾸자고 할 경우 사용
+    $.fn.y9Accordion.defaults = {
       /// 클래스 속성 -------------------
       // 활성화 클래스 속성
       active_class: 'is-active',
@@ -147,6 +142,15 @@
         divider: '__'
       },
     };
+
+    // jQuery 플러그인 y9Accordion 적용
+    $('.demo-component').y9Accordion({
+      radio: true,
+      close_all: false,
+      animate: true,
+      easing: 'easeOutElastic',
+      duration: 800
+    });
 
   })(window, window.y9);
   </script>

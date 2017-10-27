@@ -3,6 +3,9 @@
  * @version 0.0.1
  * @author yamoo9 <yamoo9@naver.com>
  * @todo Accordion, AccordionItem 클래스 정의
+ * @todo 활성화 클래스/인덱스 기능 추가
+ * @todo 라디오 기능 추가
+ * @todo 애니메이션 기능 추가
  */
 
 
@@ -12,13 +15,22 @@
 
   // 컴포넌트 기본 옵션
   var defaults = {
+    // 활성화 클래스 속성
     active_class: 'is-active',
+    // 활성화 인덱스
     active_index: null,
+    // 모든 패널 접음
     close_all: true,
+    // 라디오 기능 활성화
     radio: false,
+    // 애니메이션 활성화
     animate: false,
+    // 애니메이션 지속시간
     duration: 300,
-    easing: 'swing', // 참고: http://easings.net/ko
+    // 애니메이션 이징
+    // jquery.easing 사용 가능
+    // 참고: http://easings.net/ko
+    easing: 'swing',
   };
 
   /**
@@ -60,12 +72,17 @@
     this._items = [];
 
     // jQuery UI Easing 값을 사용한 경우, jquery-easing CDN 파일 로드
-    if ( /In|Out/.test(this.options.easing) ) {
-      $.getScript('https://unpkg.com/jquery-easing@0.0.1/dist/jquery.easing.1.3.umd.min.js', $.proxy(this, '_init'));
+    if ( this.options.animate && /In|Out/.test(this.options.easing) ) {
+      var accordion = this;
+      var $el = this.$el;
+      $el.css('opacity', 0);
+      $.getScript('https://unpkg.com/jquery-easing@0.0.1/dist/jquery.easing.1.3.umd.min.js', function(){
+        accordion._init();
+        $el.css('opacity', '');
+      });
     } else {
       this._init();
     }
-
   };
 
   /**
@@ -79,6 +96,7 @@
      */
     _init: function(){
       var accordion = this;
+      var options = this.options;
 
       accordion.$el.children().each(function(index, element){
         // 아코디언 아이템 생성 및 수집
@@ -86,11 +104,11 @@
       });
 
       // 초기 활성화
-      var index = this.options.active_index;
+      var index = options.active_index;
       if ( $.type(index) === 'number' ) {
-        this.active(this.options.active_index);
+        this.active(options.active_index);
       }
-      if ( $.type(index) !== 'number' && !this.options.close_all ) {
+      if ( $.type(index) !== 'number' && !options.close_all ) {
         this.active(0);
       }
 
@@ -114,6 +132,21 @@
      */
     _bind: function(){
       this.$el.on('deactive', $.proxy(this, 'deactive'));
+    },
+
+    /**
+     * 컴포넌트 pre, current 업데이트
+     * @private
+     */
+    _updatePreCurrent: function(index){
+      for ( var item, items=this._items, i=0, l=items.length; i<l; i++ ) {
+        item = items[i];
+        if ( item.isExpanded() ) {
+          this._pre = item._index;
+          break;
+        }
+      }
+      this._current = index;
     },
 
     /**
@@ -167,17 +200,6 @@
         if( item.isExpanded() ) { expanded_count += 1; }
       });
       return expanded_count === 1;
-    },
-
-    updatePreCurrent: function(index){
-      for ( var item, items=this._items, i=0, l=items.length; i<l; i++ ) {
-        item = items[i];
-        if ( item.isExpanded() ) {
-          this._pre = item._index;
-          break;
-        }
-      }
-      this._current = index;
     },
 
   });
@@ -282,7 +304,7 @@
           options = this.options;
 
       // pre, current 인덱스 업데이트
-      parent.updatePreCurrent(this._index);
+      parent._updatePreCurrent(this._index);
 
       // 라디오 기능 활성화일 경우, 부모 컴포넌트에 'deactive' 커스텀 이벤트 알림
       if ( options.radio ) {

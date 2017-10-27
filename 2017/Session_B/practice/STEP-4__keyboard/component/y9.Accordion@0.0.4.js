@@ -12,25 +12,37 @@
 
   // 컴포넌트 기본 옵션
   var defaults = {
-    // 클래스 속성
+    /// 클래스 속성 -------------------
+    // 활성화 클래스 속성
     active_class: 'is-active',
+    // 중첩 클래스 속성
     nested_class: 'is-nested',
+    // 애니메이션 클래스 속성
     animate_class: 'is-animate',
-    focus_class: 'is-focus-ring',
+    // 레벨 클래스 속성
     level_class: 'lv-',
-    // 활성화 인덱스
+    /// 활성화 인덱스 ------------------
     active_index: null,
     // 모든 헤더 닫기
     close_all: true,
-    // 라디오 기능
+    /// 기능 -------------------------
+    // 모든 패널 접음
+    close_all: true,
+    // 라디오 기능 활성화
     radio: false,
-    // 애니메이션 기능
+    // 애니메이션 활성화
     animate: false,
+    // 애니메이션 지속시간
     duration: 300,
-    easing: 'swing', // 참고: http://easings.net/ko
-    // WAI-ARIA
+    // 애니메이션 이징
+    // jquery.easing 사용 가능
+    // 참고: http://easings.net/ko
+    easing: 'swing',
+    // WAI-ARIA 활성화
     aria: true,
-    // 구조 클래스 속성
+    // 키보드 인터랙션 활성화
+    shortkut_key: true,
+    /// 구조 클래스 속성 ---------------
     structure: {
       accordion: 'y9-accordion',
       item: 'item',
@@ -38,7 +50,7 @@
       button: 'button',
       panel: 'panel',
       divider: '__'
-    }
+    },
   };
 
   // 생성 ID
@@ -95,12 +107,17 @@
     this._items = [];
 
     // jQuery UI Easing 값을 사용한 경우, jquery-easing CDN 파일 로드
-    if ( /In|Out/.test(this.options.easing) ) {
-      $.getScript('https://unpkg.com/jquery-easing@0.0.1/dist/jquery.easing.1.3.umd.min.js', $.proxy(this, '_init'));
+    if ( this.options.animate && /In|Out/.test(this.options.easing) ) {
+      var accordion = this;
+      var $el = this.$el;
+      $el.css('opacity', 0);
+      $.getScript('https://unpkg.com/jquery-easing@0.0.1/dist/jquery.easing.1.3.umd.min.js', function(){
+        accordion._init();
+        $el.css('opacity', '');
+      });
     } else {
       this._init();
     }
-
   };
 
   /**
@@ -114,6 +131,7 @@
      */
     _init: function(){
       var accordion = this;
+      var options = this.options;
 
       if (accordion.level === 1) {
         accordion.g_id = ++generated_id;
@@ -125,12 +143,12 @@
       });
 
       // 초기 활성화
-      var index = this.options.active_index;
+      var index = options.active_index;
       // 레벨 인덱스가 1일 경우만 처리
       if ( $.type(index) === 'number' && this.level === 1 ) {
-        this.active(this.options.active_index);
+        this.active(options.active_index);
       }
-      if ( $.type(index) !== 'number' && !this.options.close_all) {
+      if ( $.type(index) !== 'number' && !options.close_all && this.level === 1) {
         this.active(0);
       }
 
@@ -183,6 +201,21 @@
      */
     _bind: function(){
       this.$el.on('deactive', $.proxy(this, 'deactive'));
+    },
+
+    /**
+     * 컴포넌트 pre, current 업데이트
+     * @private
+     */
+    _updatePreCurrent: function(index){
+      for ( var item, items=this._items, i=0, l=items.length; i<l; i++ ) {
+        item = items[i];
+        if ( item.isExpanded() ) {
+          this._pre = item._index;
+          break;
+        }
+      }
+      this._current = index;
     },
 
     /**
@@ -264,22 +297,6 @@
         if( item.isExpanded() ) { expanded_count += 1; }
       });
       return expanded_count === 1;
-    },
-
-    /**
-     * 컴포넌트 pre, current 업데이트
-     * @public
-     * @method
-     */
-    updatePreCurrent: function(index){
-      for ( var item, items=this._items, i=0, l=items.length; i<l; i++ ) {
-        item = items[i];
-        if ( item.isExpanded() ) {
-          this._pre = item._index;
-          break;
-        }
-      }
-      this._current = index;
     },
 
     /**
@@ -510,7 +527,9 @@
       // 헤더 버튼 클릭하면 toggle() 메서드 실행
       this.$button.on('click', $.proxy(this, 'toggle'));
       // 키보드 인터랙션
-      this.$button.on('keyup', $.proxy(this, '_keyInteraction'));
+      if ( this.options.shortkut_key ) {
+        this.$button.on('keyup', $.proxy(this, '_keyInteraction'));
+      }
     },
 
     /**
@@ -578,7 +597,7 @@
           options = this.options;
 
       // pre, current 인덱스 업데이트
-      parent.updatePreCurrent(this._index);
+      parent._updatePreCurrent(this._index);
 
       // 라디오 기능 활성화일 경우, 부모 컴포넌트에 'deactive' 커스텀 이벤트 알림
       if ( options.radio ) {
@@ -671,9 +690,9 @@
     },
 
      /**
-     * 루트 아코디언 이전 아이템 포커스 (더 이상 이전이 없으면 마지막 아이템으로 포커스 이동)
-     * @public
-     * @method
+      * 루트 아코디언 이전 아이템 포커스 (더 이상 이전이 없으면 마지막 아이템으로 포커스 이동)
+      * @public
+      * @method
      */
     rootPrev: function(){
       var root_parent = this._parent.$el.parents('.' + this.options.structure.accordion).data('component');
