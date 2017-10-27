@@ -93,5 +93,5 @@ Session A에서는 WAI-ARIA의 기본 개념 및 기술에 대해 소개하고 W
 * 마우스로 사용할 수 있는 기능은 키보드로도 사용할 수 있도록 보장하여야 한다.
 <span role="button" tabindex="0">
   ...
-</h1>
+</span>
 ```
