@@ -23,8 +23,13 @@ Session A에서는 WAI-ARIA의 기본 개념 및 기술에 대해 소개하고 W
 - 역할을 부여하여 사용자에게 정보를 제공
 - 부여된 역할은 동적으로 변경할 수 없음
 ``` HTML
+* 메뉴
 <div class="user_menu" role="menu">...</div>
+
+* 경고 대화상자
 <div class="auth_error" role="alertdialog">...</div>
+
+* 버튼
 <div class="btn_01" role="button">...</div>
 ```
 #### 랜드마크(Landmark)
@@ -43,36 +48,49 @@ Session A에서는 WAI-ARIA의 기본 개념 및 기술에 대해 소개하고 W
 - 요소(Element)가 기본적으로 갖고 있는 특징이나 상황 
 - 속성과 상태는 “aria-*” 접두어를 가진다. 
 - 상태는 요소의 상황을 나타내므로 애플리케이션이 실행 중에 자주 바뀌는 반면, 속성은 상대적으로 바뀌는 경우가 드물다.
+
+#### 속성(Properties) 예
 ``` HTML
+* 필수 항목 
 <input type="checkbox" aria-required="true">
+
+* 추가 설명 
 <input type="text" aria-describedby="reference">
 <div class="user_menu" role="menu">추가 설명</div>
+
+* 그룹 제목 
 <div role="group" aria-label="그룹 제목">...</div>
 ```
 
+#### 상태(States) 예
 ``` HTML
+* 확장되어 있는 상태의 탭 패널
 <div role="tabpanel" aria-expanded="true">...</div>
+
+* 오류가 발생한 상태의 입력상자
 <input type="text" aria-invalid="true">
+
+* 선택된 상태의 토글버튼
 <button aria-pressed="true">...</button>
 ```
 
 ## ARIA적용 유의 사항
-- ARIA 역할(role)과 HTML5 구조 관련 요소를 중복해서 사용하지 않는다
 ``` HTML
+* ARIA 역할(role)과 HTML5 구조 관련 요소를 중복해서 사용하지 않는다
 <nav role="navigation">
   ...
 </nav>
 ```
 
-- HTML 요소의 기본 기능을 ARIA 역할(Role)을 활용하여 변경하지 않는다.
 ``` HTML
+* HTML 요소의 기본 기능을 ARIA 역할(Role)을 활용하여 변경하지 않는다.
 <h1 role="button">
   ...
 </h1>
 ```
 
-- 마우스로 사용할 수 있는 기능은 키보드로도 사용할 수 있도록 보장하여야 한다.
 ``` HTML
+* 마우스로 사용할 수 있는 기능은 키보드로도 사용할 수 있도록 보장하여야 한다.
 <span role="button" tabindex="0">
   ...
 </h1>
