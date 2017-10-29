@@ -2,11 +2,11 @@
 
 # 진행 목차
 
-1. [아코디언 컴포넌트 구성](../STEP-1__basic/)
+1. [아코디언 컴포넌트 구성](../STEP-1__basic/README.md)
 1. 중첩된 아코디언 컴포넌트
-1. [아코디언 컴포넌트에 WAI-ARIA 적용](../STEP-3__wai-aria/)
-1. [아코디언 컴포넌트에 키보드 인터랙션 적용](../STEP-4__keyboard/)
-1. [아코디언 컴포넌트 jQuery 플러그인화](../STEP-5__jquery-plugin/)
+1. [아코디언 컴포넌트에 WAI-ARIA 적용](../STEP-3__wai-aria/README.md)
+1. [아코디언 컴포넌트에 키보드 인터랙션 적용](../STEP-4__keyboard/README.md)
+1. [아코디언 컴포넌트 jQuery 플러그인화](../STEP-5__jquery-plugin/README.md)
 
 ## **아코디언(Accordion) 컴포넌트** 제작 편 **STEP-02**
 
@@ -145,7 +145,7 @@
 
 ### 2. 아코디언 스크립팅
 
-2-1. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-2__nested/component/y9.Accordion%400.0.2.js#L17-L50" target="_blank">컴포넌트 기본 옵션에 `nested_class`, `level_class`, `structure` 설정을 추가한다.</a>
+2-1. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-2__nested/component/y9.Accordion%400.0.2.js#L17-L51" target="_blank">컴포넌트 기본 옵션에 `nested_class`, `level_class`, `structure` 설정을 추가한다.</a>
 
 2-2. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L60-L89" target="_blank">Accordion 생성자 함수에 레벨 속성 및 매개변수 설정, 이전/현재 인덱스 속성을 추가한다.</a>
 
