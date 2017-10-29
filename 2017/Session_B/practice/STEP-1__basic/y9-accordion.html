@@ -85,7 +85,13 @@
     'use strict';
 
     // 아코디언 객체 생성
-    new y9.Accordion('.y9-accordion');
+    new y9.Accordion('.y9-accordion', {
+      radio: true,
+      close_all: false,
+      animate: true,
+      easing: 'easeOutElastic',
+      duration: 800
+    });
 
     // 옵션 참고
     var options= {
