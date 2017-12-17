@@ -1,0 +1,65 @@
+html, body{
+  height: 100%;
+}
+body{
+  display: table;
+  margin: 0 auto;
+  width: 1020px;
+  font-size: 20px;
+}
+[tabindex="-1"]:focus {
+      box-shadow: 0 0 0 0.25rem rgba(0,123,255,.5);
+}
+.row{
+  display: table-row;
+  width: 100%;
+  height: 1;
+}
+.content{
+  height: 100%;
+}
+
+.on-popup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden
+}
+.popup-wrap{
+  display: none;
+}
+.on-popup .popup-wrap{
+  display: block;
+}
+.popup-dimed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .7);
+  z-index:100
+}
+.popup-body{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: .5em;
+  padding: 1.5em;
+  width: 400px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  z-index:101
+}
+.popup-body .btn-close{
+  position: absolute;
+  top: .5em;
+  right: 1em;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
