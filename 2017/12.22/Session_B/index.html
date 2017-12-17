@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" class="">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="row">
+    <h1 class="pt-4 display-4">한국정보화진흥원 접근성 오픈 아카데미</h1>
+  </header>
+  <section class="content row">
+    <p class="my-4">
+      이번 세션에서는 WAI-ARIA를 이용하여 접근 가능한 레이어 팝업을 만들어 보도록 하겠습니다.
+    </p>
+    <hr>
+    <h2>
+      the implementing steps to improve accessibility with WAI-ARIA 
+    </h2>
+    <ol>
+      <li>use Native Langauge</li>
+      <li>add ARIA role</li>
+      <li>add ARIA properties & states</li>
+      <li>develope keyboard interface</li>
+    </ol>
+    <hr>
+    <button type="button" class="btn btn-primary open-popup">팝업 열기</button>
+  </section>
+  <div class="popup-wrap">
+    <div class="popup-body">
+      <strong id="pop-title" class="modal-header">접근 가능한 레이어 팝업</strong>
+      <div id="popup-contents" class="modal-body">
+        <p>
+          접근 가능한 레이어 팝업이란?
+        </p>
+        <p>
+          Native HTML은 접근 가능하지 않은가?
+        </p>
+        <p>
+          WAI-ARIA를 적용하면 좋은 점은?
+        </p>
+      </div>
+      <button type="button" class="btn-close" aria-label="팝업 닫기">X</button>
+    </div>
+    <div class="popup-dimed"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
