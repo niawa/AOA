@@ -145,14 +145,14 @@
 
 ### 2. 아코디언 스크립팅
 
-2-1. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-2__nested/component/y9.Accordion%400.0.2.js#L17-L51" target="_blank">컴포넌트 기본 옵션에 `nested_class`, `level_class`, `structure` 설정을 추가한다.</a>
+2-1. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-2__nested/component/y9.Accordion%400.0.2.js#L17-L51" target="_blank">컴포넌트 기본 옵션에 `nested_class`, `level_class`, `structure` 설정을 추가한다.</a>
 
-2-2. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L60-L89" target="_blank">Accordion 생성자 함수에 레벨 속성 및 매개변수 설정, 이전/현재 인덱스 속성을 추가한다.</a>
+2-2. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L60-L89" target="_blank">Accordion 생성자 함수에 레벨 속성 및 매개변수 설정, 이전/현재 인덱스 속성을 추가한다.</a>
 
-2-3. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L131-L137" target="_blank">중첩된 아코디언은 제외되도록 설정하고, `index` 설정 유무에 따라 `.active()` 메서드를 실행하도록 코드를 수정한다.</a>
+2-3. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L131-L137" target="_blank">중첩된 아코디언은 제외되도록 설정하고, `index` 설정 유무에 따라 `.active()` 메서드를 실행하도록 코드를 수정한다.</a>
 
-2-4. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L150-L166" target="_blank">레벨 및 구조 클래스 속성을 자동으로 처리하는 코드를 추가한다.</a>
+2-4. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L150-L166" target="_blank">레벨 및 구조 클래스 속성을 자동으로 처리하는 코드를 추가한다.</a>
 
-2-5. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L331-L336" target="_blank">AccordionItem 구조 클래스 속성을 자동으로 처리하는 코드를 추가한다.</a>
+2-5. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L331-L336" target="_blank">AccordionItem 구조 클래스 속성을 자동으로 처리하는 코드를 추가한다.</a>
 
-2-6. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L352-L361" target="_blank">중첩된 아코디언 컴포넌트를 처리하는 `__nested()` 코드를 추가한다.</a>
+2-6. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-2__nested/component/y9.Accordion@0.0.2.js#L352-L361" target="_blank">중첩된 아코디언 컴포넌트를 처리하는 `__nested()` 코드를 추가한다.</a>
