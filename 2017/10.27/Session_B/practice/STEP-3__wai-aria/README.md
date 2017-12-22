@@ -17,12 +17,12 @@
 
 ### 아코디언 스크립팅
 
-1. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L41" target="_blank">WAI-ARIA 사용 유무를 설정하는 속성을 추가한다.</a>
+1. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L41" target="_blank">WAI-ARIA 사용 유무를 설정하는 속성을 추가한다.</a>
 
-2. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L182-L187" target="_blank">Accordion 컴포넌트 셋업 부분에 WAI-ARIA 설정 코드를 추가한다.</a>
+2. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L182-L187" target="_blank">Accordion 컴포넌트 셋업 부분에 WAI-ARIA 설정 코드를 추가한다.</a>
 
-3. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L413-L462" target="_blank">AccordionItem 컴포넌트 셋업 부분에 WAI-ARIA 설정 코드를 추가한다.</a>
+3. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L413-L462" target="_blank">AccordionItem 컴포넌트 셋업 부분에 WAI-ARIA 설정 코드를 추가한다.</a>
 
-4. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L516-L522" target="_blank">AccordionItem 컴포넌트의 `.extend()` 메서드에 WAI-ARIA 조건 처리 코드를 추가한다.</a>
+4. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L516-L522" target="_blank">AccordionItem 컴포넌트의 `.extend()` 메서드에 WAI-ARIA 조건 처리 코드를 추가한다.</a>
 
-5. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L552-L557" target="_blank">AccordionItem 컴포넌트의 `.collapse()` 메서드에 WAI-ARIA 조건 처리 코드를 추가한다.</a>
+5. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-3__wai-aria/component/y9.Accordion%400.0.3.js#L552-L557" target="_blank">AccordionItem 컴포넌트의 `.collapse()` 메서드에 WAI-ARIA 조건 처리 코드를 추가한다.</a>
