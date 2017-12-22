@@ -22,7 +22,7 @@ Accordion 컴포넌트에 WAI-ARIA 국제표준 기술을 반영하는 과정을
 일반적으로 수직 방향으로 겹쳐진 요소들의 집합을 말하며, 각 헤더 레이블을 클릭하면 패널 섹션은 펼침되거나 접힘되어 토글 됩니다.
 웹/앱 페이지에 하나 이상의 섹션 콘텐츠(Section Contents)를 표시하고자 할 때, 협소한 공간을 효율적으로 활용하기 위해 사용되는 UI 컴포넌트입니다.
 
-<img alt="Accoridon 컴포넌트 애니메이션" src="../../ASSETS/ui-accordion-animation.gif" width="50%"><br>
+<img alt="Accoridon 컴포넌트 애니메이션" src="../../../ASSETS/ui-accordion-animation.gif" width="50%"><br>
 > Accordion 컴포넌트
 
 
@@ -36,7 +36,7 @@ Accordion 컴포넌트에 WAI-ARIA 국제표준 기술을 반영하는 과정을
 
     아코디언 헤더와 연관된 섹션 콘텐츠입니다.
 
-[![Netflix Accordion](../../ASSETS/accordion_netflix.jpg)](https://www.netflix.com)
+[![Netflix Accordion](../../../ASSETS/accordion_netflix.jpg)](https://www.netflix.com)
 <br>`Accordion 컴포넌트 구조, Netflix`
 
 <br>
@@ -46,7 +46,7 @@ Accordion 컴포넌트에 WAI-ARIA 국제표준 기술을 반영하는 과정을
 아래 웹사이트 좌측 메뉴 예시는 중첩된 형태로 섹션 콘텐츠를 펼치거나 접을 수 있습니다.
 가급적 중첩된 형태가 아닌 단순한 형태의 아코디언이 권장되지만, 기획에 따라 중첩된 아코디언을 사용해야 할 경우도 있습니다.
 
-[<img src="../../ASSETS/accordion_tongilbu.jpg" alt="통일부" width="70%">](http://www.unikorea.go.kr/unikorea/)<br>
+[<img src="../../../ASSETS/accordion_tongilbu.jpg" alt="통일부" width="70%">](http://www.unikorea.go.kr/unikorea/)<br>
 `중첩된 Accordion 컴포넌트 구조, 통일부`
 
 <small>[목차로 이동 ↑](#목차)</small>
