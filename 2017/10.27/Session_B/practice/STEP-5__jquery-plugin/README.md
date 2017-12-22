@@ -16,7 +16,7 @@
 
 ### jQuery 플러그인화
 
-<a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-5__jquery-plugin/component/y9.Accordion@0.0.5.js#L715-L730" target="_blank">y9.Accordion 컴포넌트를 jQuery 플러그인으로 사용할 수 있도록 코드를 추가한다.</a>
+<a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-5__jquery-plugin/component/y9.Accordion@0.0.5.js#L715-L730" target="_blank">y9.Accordion 컴포넌트를 jQuery 플러그인으로 사용할 수 있도록 코드를 추가한다.</a>
 
 
 ### jQuery 플러그인 사용법
