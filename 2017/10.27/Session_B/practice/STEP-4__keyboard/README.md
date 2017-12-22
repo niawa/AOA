@@ -16,11 +16,11 @@
 
 ### 아코디언 스크립팅
 
-1. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-4__keyboard/component/y9.Accordion%400.0.4.js#L42" target="_blank">키보드 사용 유무 설정을 추가한다.</a>
+1. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-4__keyboard/component/y9.Accordion%400.0.4.js#L42" target="_blank">키보드 사용 유무 설정을 추가한다.</a>
 
-2. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-4__keyboard/component/y9.Accordion%400.0.4.js#L528-L530" target="_blank">컴포넌트 이벤트 바인딩 부분에 단축키 설정 유무에 따라 처리되는 이벤트 코드를 추가한다.</a>
+2. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-4__keyboard/component/y9.Accordion%400.0.4.js#L528-L530" target="_blank">컴포넌트 이벤트 바인딩 부분에 단축키 설정 유무에 따라 처리되는 이벤트 코드를 추가한다.</a>
 
-3. <a href="https://github.com/niawa/AOA/blob/master/2017/Session_B/practice/STEP-4__keyboard/component/y9.Accordion%400.0.4.js#L549-L586" target="_blank">키보드 이벤트에 따라 호출되는 `_keyInteraction` 메서드 코드를 추가한다.</a>
+3. <a href="https://github.com/niawa/AOA/blob/master/2017/10.27/Session_B/practice/STEP-4__keyboard/component/y9.Accordion%400.0.4.js#L549-L586" target="_blank">키보드 이벤트에 따라 호출되는 `_keyInteraction` 메서드 코드를 추가한다.</a>
 
 ---
 
