@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link type="text/css" rel="stylesheet" href="../test/haeppa.css" />
+<title>aria-haspopup</title>
+</head>
+<body>
+<div class="box">
+	<div class="titlebox">
+		<h2>haspopup 적용</h2>
+	</div>
+	<div class="contentbox">
+		<span class="info" aria-hidden="true">링크에 false, true, menu, listbox, dialog</span><br />
+		<a href="no0" aria-haspopup="false">더보기0<span aria-hidden="true">(false)</span></a>
+		<a href="no1" aria-haspopup="true">더보기1<span aria-hidden="true">(true)</span></a>
+		<a href="no2" aria-haspopup="menu">더보기2<span aria-hidden="true">(menu)</span></a><br />
+		<a href="no3" aria-haspopup="listbox">더보기3<span aria-hidden="true">(listbox)</span></a>
+		<a href="no4" aria-haspopup="dialog">더보기4<span aria-hidden="true">)dialog)</span></a><br />
+
+		<span class="info" aria-hidden="true">&lt;button&gt;에 true/false</span><br />
+		<button aria-haspopup="true">자산관리</button>
+		<button aria-haspopup="false">자산조회</button><br />
+
+<span class="info" aria-hidden="true">input 에 true/false</span><br />
+		<input type="button" aria-haspopup="true" value="폴더이동">
+		<input type="button" aria-haspopup="false" value="경로이동">
+	</div>
+</div>
+<p>https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup</p>
+</body>
+</html>

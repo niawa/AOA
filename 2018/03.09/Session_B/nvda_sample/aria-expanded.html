@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link type="text/css" rel="stylesheet" href="../test/haeppa.css" />
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>aria-expanded 확정여부 구분</title>
+<style>
+.popup_a2 {
+	position:absolute;
+	width:60px;
+	top:20px;
+	left:100px;
+	text-align:center;
+	border: 1px solid #000;
+	padding:5px;
+	background-color:#fff;
+	list-style:none;
+	}
+.popup_b2 {
+	position:absolute;
+	width:60px;
+	top:10px;
+	left:100px;
+	text-align:center;
+	border: 1px solid #000;
+	padding:5px;
+	background-color:#fff;
+	list-style:none;
+	}
+</style>
+</head>
+<body>
+<div class="intro">
+	<p class="info">링크나 버튼에서 하위 콘텐츠의 펼침/접힘을 구분하는 정보 제공<br/>
+	기능 붙여준 kanas.l 감사!!
+	</p>
+</div>
+<div class="box">
+	<div class="titlebox">
+		<h2>버튼에서 구분</h2>
+	</div>
+	<div class="contentbox">
+			<button id="button_A" aria-expanded="false" aria-controls="a1">조회</button>
+				<ul id="a1" style="display:none"></ul>
+			<button id="button_B" aria-expanded="true" aria-controls="a2">이체</button>
+				<ul id="a2" class="popup_a2" tabindex="-1" style="display:block">
+					<li><a href="#1">즉시이체</a></li>
+					<li><a href="#2">예약이체</a></li>
+					<li><a href="#3">자동이체</a></li>
+					<li><a href="#4">기타</a></li>
+				</ul>
+			<button id="button_C" aria-expanded="false" aria-controls="a3">관리</button>
+				<ul id="a3" style="display:none"></ul>
+	</div>
+</div>
+
+<div class="box">
+	<div class="titlebox">
+		<h2>링크에서 구분</h2>
+	</div>
+	<div class="contentbox">
+			<a href="#link_A" aria-expanded="false" aria-controls="b1">계좌조회</a>
+				<ul id="b1" style="display:none"></ul>
+			<a href="#link_B" id="link_B" aria-expanded="true" aria-controls="b2">계좌이체</a>
+				<ul id="b2" class="popup_b2" tabindex="-1" style="display:block">
+					<li>기타등등</li>
+					<li>자동이체</li>
+					<li>예약이체</li>
+					<li>즉시이체</li>
+				</ul>
+			<a href="#link_C" aria-expanded="false" aria-controls="b3">계좌관리</a>
+				<ul id="b3" style="display:none"></ul>
+	</div>
+</div>
+
+
+<script>
+
+    $(document).on("click",'#button_B', function(){
+    if($("#a2").css("display") == "none"){
+           $('#button_B').attr('aria-expanded','true');
+           $('#a2').css('display', 'block');
+
+    } else {
+           $('#button_B').attr('aria-expanded','false');
+           $('#a2').css('display', 'none');
+    }
+   });
+
+   $(document).on("click",'#link_B', function() {
+       if($('#b2').css('display') == 'none') {
+           $('#link_B').attr('aria-expanded','true');
+           $('#b2').css('display', 'block');
+        } else {
+           $('#link_B').attr('aria-expanded','false');
+           $('#b2').css('display', 'none');
+        }
+    });
+</script>
+</body>
+</html>

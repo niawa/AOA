@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link type="text/css" rel="stylesheet" href="../test/haeppa.css" />
+<title>aria-current</title>
+<style>
+a {text-decoration:none;color:white;}
+.option {
+	background-color:red;
+	padding:0px 20px
+	}
+.option2 {
+	background-color:red;
+	padding:0px 10px
+	}
+.on {
+	background-color:black;
+	padding:0px 20px
+	}
+.today {background-color:yellow;}
+ul {padding:0px;}
+</style>
+</head>
+<body>
+<div class="box">
+	<div class="titlebox">
+		<h2>aria-current 단독사용</h2>
+	</div>
+	<div class="contentbox">
+		<p class="info" aria-hidden="true">aria-current="true"</p>
+		<ul style="list-style:none;" aria-label="후식선택하기">
+			<li class="option"><a href="#none1" aria-current="false">apple</a></li>
+			<li class="option"><a href="#none2" aria-current="false">melon</a></li>
+			<li class="on"><a href="#none3" aria-current="true">banana</a></li>
+			<li class="option"><a href="#none4" aria-current="false">mango</a></li>
+			<li class="option"><a href="#none5" aria-current="false">cherry</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="box">
+	<div class="titlebox">
+		<h2>role="menuitem"에 사용</h2>
+	</div>
+	<div class="contentbox">
+		<p class="info" aria-hidden="true">aria-current="true"</p>
+		<ul role="menu" aria-label="국가선택" style="list-style:none;">
+			<li class="option"><a href="#none1" role="menuitem" aria-current="false">USA</a></li>
+			<li class="option"><a href="#none2" role="menuitem" aria-current="false">France</a></li>
+			<li class="on"><a href="#none3" role="menuitem" aria-current="true">KOREA</a></li>
+			<li class="option"><a href="#none4" role="menuitem" aria-current="false">Germany</a></li>
+			<li class="option"><a href="#none5" role="menuitem" aria-current="false">China</a></li>
+		</ul>
+	</div>
+</div>
+<div class="box">
+	<div class="titlebox">
+		<h2>페이징에서도...</h2>
+	</div>
+	<div class="contentbox">
+		<p class="info" aria-hidden="true">aria-current="page"</p>
+		<!-- <ul role="menu" aria-label="테스트메뉴" style="list-style:none;">
+			<li class="option"><a href="#none1" role="menuitem" aria-current="false">Home</a></li>
+			<li class="option"><a href="#none2" role="menuitem" aria-current="false">Product</a></li>
+			<li class="on"><a href="#none3" role="menuitem" aria-current="page">Store</a></li>
+			<li class="option"><a href="#none4" role="menuitem" aria-current="false">About</a></li>
+			<li class="option"><a href="#none5" role="menuitem" aria-current="false">Contact</a></li>
+		</ul> -->
+		<ul aria-label="게시판페이지전환" style="list-style:none;">
+			<a class="option2"  href="#none1" aria-current="false">1</a>
+			<a class="option2" href="#none2" aria-current="false">2</a>
+			<a class="on" href="#none3"aria-current="page">3</a>
+			<a class="option2" href="#none4" aria-current="false">4</a>
+			<a class="option2" href="#none5" aria-current="false">5</a>
+		</ul>
+
+	</div>
+</div>
+
+<div class="box">
+	<div class="titlebox">
+		<h2>날짜 목록에서 오늘 구분</h2>
+	</div>
+	<div class="contentbox">
+		<p class="info" aria-hidden="true">aria-current="date"</p>
+		<ul aria-label="날짜 선택하기" style="list-style:none;">
+			<li class="option"><a href="none1-1" aria-current="false" aria-disabled="true">2018.02.09</a></li>
+			<li class="on"><a href="none1-2" aria-current="date">2018.03.09</a></li>
+			<li class="option"><a href="none1-3" aria-current="false" aria-disabled="true">2018.04.09</a></li>
+		</ul>
+		<!--<table>
+			<caption><span class="screen_out">시작일선택</span> 2909년 01월</caption>
+			<thead>
+				<tr>
+					<th scope="col">금</th>
+					<th scope="col">월</th>
+					<th scope="col">화</th>
+					<th scope="col">수</th>
+					<th scope="col">목</th>
+					<th scope="col">금</th>
+					<th scope="col">금</th>
+				</tr>
+			<tbody>
+				<tr>
+					<td><button>1</button></td>
+					<td><button>2</button></td>
+					<td><button>3</button></td>
+					<td><button>4</button></td>
+					<td><button>5</button></td>
+					<td><button>6</button></td>
+					<td><button>7</button></td>
+				</tr>
+				<tr>
+					<td><button>8</button></td>
+					<td><button>9</button></td>
+					<td><button>10</button></td>
+					<td><button>11</button></td>
+					<td class="today"><a href="#" aria-currrent="date">12</a></td>
+					<td><button>13</button></td>
+					<td><button>14</button></td>
+				</tr>
+				<tr>
+					<td><button>15</button></td>
+					<td><button>16</button></td>
+					<td><button>17</button></td>
+					<td><button>18</button></td>
+					<td><button>19</button></td>
+					<td><button>20</button></td>
+					<td><button>21</button></td>
+				</tr>
+				<tr>
+					<td><button>22</button></td>
+					<td><button>23</button></td>
+					<td><button>24</button></td>
+					<td><button>25</button></td>
+					<td><button>26</button></td>
+					<td><button>27</button></td>
+					<td><button>28</button></td>
+				</tr>
+				<tr>
+					<td><button>29</button></td>
+					<td><button>30</button></td>
+					<td><button>31</button></td>
+					<td><button></button></td>
+					<td><button></button></td>
+					<td><button></button></td>
+					<td><button></button></td>
+				</tr>
+			</tbody>
+		</table>-->
+	</div>
+</div>
+<div class="box">
+	<div class="titlebox">
+		<h2>시간에서 구분</h2>
+	</div>
+	<div class="contentbox">
+		<p class="info" aria-hidden="true">aria-current="time"</p>
+		<ul aria-label="시간확인" style="list-style:none;">
+			<li class="option"><a href="none3" aria-current="false">AM 9:30</a></li>
+			<li class="on"><a href="none5" aria-current="time">PM 12:30</a></li>
+			<li class="option"><a href="none5" aria-current="false">PM 6:30</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="box">
+	<div class="titlebox">
+		<h2>단계에서 구분</h2>
+	</div>
+	<div class="contentbox">
+		<p class="info" aria-hidden="true">aria-current="step"</p>
+		<ul aria-label="주문단계표시" style="list-style:none;">
+			<li class="option"><a href="none2-1" aria-current="false" aria-disabled="true">장바구니</a></li>
+			<li class="on"><a href="none2-2" aria-current="step">주문정보입력</a></li>
+			<li class="option"><a href="none2-3" aria-current="false" aria-disabled="true">결제방법선택</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<div class="box">
+	<div class="titlebox">
+		<h2>여기는 어디인가</h2>
+	</div>
+	<div class="contentbox">
+		<p class="info" aria-hidden="true">aria-current="location"</p>
+		<ul aria-label="위치확인" style="list-style:none;">
+			<li class="option"><a href="none3-1" aria-current="false">서울</a></li>
+			<li class="option"><a href="none3-2" aria-current="false">대전</a></li>
+			<li class="on"><a href="none3-3" aria-current="location">안드로메다</a></li>
+			<li class="option"><a href="none3-4" aria-current="false">부산</a></li>
+		</ul>
+	</div>
+</div>
+
+<p>https://www.w3.org/TR/wai-aria-1.1/#aria-current</p>
+</body>
+</html>

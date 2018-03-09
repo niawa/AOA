@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link type="text/css" rel="stylesheet" href="../test/haeppa.css" />
+<title>목록에 이동, 삭제버튼 부가정보제공</title>
+</head>
+<body>
+<div class="box">
+	<div class="titlebox">
+		<h2>보통 그냥 링크</h2>
+	</div>
+	<div class="contentbox">
+		<span id="recent1">지점안내</span>
+		<ul aria-labelledby="recent1">
+			<li><span id="rct0a">성수동</span><a href="#0rctA">이동</a></li>
+			<li><span id="rct0b">연남동</span><a href="#0rctB">이동</a></li>
+			<li><span id="rct0c">한남동</span><a href="#0rctC">이동</a></li>
+		</ul>
+	</div>
+</div>
+<div class="box">
+	<div class="titlebox">
+		<h2>링크에 aria-describedby사용하기</h2>
+	</div>
+	<div class="contentbox">
+		<span id="recent1">지점안내</span>
+		<ul aria-labelledby="recent1">
+			<li><span id="rct1a">가산동</span><a href="#1rctA" aria-describedby="rct1a rct1b">이동</a></li>
+			<li><span id="rct1b">백현동</span><a href="#1rctB" aria-describedby="rct1b">이동</a></li>
+			<li><span id="rct1c">서현동</span><a href="#1rctC" aria-describedby="rct1c">이동</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="box">
+	<div class="titlebox">
+		<h2>button에 aria-describedby</h2>
+	</div>
+	<div class="contentbox">
+		<p id="recent2">최근검색</p>
+		<ul aria-describedby="recent2">
+			<li><a href="#2rctA" id="rct2a">판교역</a>
+				<button aria-describedby="rct2a">삭제</button></li>
+			<li><a href="#2rctB" id="rct2b">홍대입구역</a>
+				<button aria-describedby="rct2b">삭제</button></li>
+			<li><a href="#2rctC" id="rct2c">강남역</a>
+				<button aria-describedby="rct2c">삭제</button></li>
+		</ul>
+	</div>
+</div>
+
+<div class="box">
+	<div class="titlebox">
+		<h2>button에 screen_out</h2>
+	</div>
+	<div class="contentbox">
+		<p>최근검색</p>
+		<ul>
+			<li><a href="#3rctA" id="rct3a">양재역</a>
+				<button>삭제<span class="screen_out">양재역</span></button></li>
+			<li><a href="#3rctB" id="rc3b">신촌역</a>
+				<button>삭제<span class="screen_out">신촌역</span></button></li>
+			<li><a href="#3rctC" id="rct3c">잠실역</a>
+				<button>삭제<span class="screen_out">잠실역</span></button></li>
+		</ul>
+	</div>
+</div>
+<p>https://www.w3.org/TR/wai-aria-1.1/#aria-describedby</p>
+</body>
+</html>

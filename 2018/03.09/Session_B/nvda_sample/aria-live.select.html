@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link type="text/css" rel="stylesheet" href="../test/haeppa.css" />
+	<title>live selectbox test</title>
+	<script>
+		function chgTest(){
+			var selectValue = document.getElementById('bird-selector').value;
+			var msg = document.getElementById('msg');
+			msg.innerHTML = selectValue;
+		}
+	</script>
+</head>
+<body>
+  <h1>live selectbox test</h1>
+  <form>
+	<select  id="bird-selector" aria-controls="bird" name="bird-selector" onchange="chgTest();">
+      <option value="무이자 3개월">3개월</option>
+      <option value="부분이자 6개월">6개월</option>
+      <option value="일반 9개월">9개월</option>
+      <option value="비싼이자 12개월">12개월</option>
+    </select>
+  </form>
+  <div role="region" id="bird" aria-live="polite" aria-atomic="true">
+	<span id="msg"></span>
+</div>
+
+
+</body>
+</html>
