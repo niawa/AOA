@@ -44,8 +44,3 @@
 Graphics ARIA E-Book 발표 자료
 
 [<img src="../../ASSETS/graphics-aria.jpg" alt="그래픽스 ARIA 발표자료">](https://a11y.gitbook.io/graphics-aria)
-
-
-- [AOA 2018](https://github.com/niawa/AOA)
-- [AOA 2018 — graphics-aria](https://a11y.gitbook.io/graphics-aria/)
-- [AOA 2018 — Graphics ARIA DEMO](https://codepen.io/yamoo9/pen/LrRRdY)
