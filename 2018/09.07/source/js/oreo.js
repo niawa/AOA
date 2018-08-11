@@ -25,6 +25,7 @@ function openModal (event) {
 
   var modal = document.querySelector('#voc-dialog');
   var btnClose = modal.querySelector('.btn-close');
+  var firstTabbaleEl = modal.querySelector('#subject');
 
   if(!modal) return;
 
@@ -39,6 +40,7 @@ function openModal (event) {
 
   document.body.style.top = (document.documentElement.scrollTop || document.body.scrollTop) * -1 + 'px';
   document.documentElement.classList.add('in-modal');
+  firstTabbaleEl.focus();
 }
 
 /**
