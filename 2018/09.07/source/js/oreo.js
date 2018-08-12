@@ -78,10 +78,23 @@ function closeModal (event) {
 function bindKeyEvt (event) {
   event = event || window.event;
   var keycode = event.keycode || event.which;
+  var currEl = event.target || event.srcElement;
+  var firstTabbableEl = document.querySelector('#subject');
+  var lastTabbableEl = document.querySelector('#voc-dialog .btn-close');
 
   switch(keycode) {
     case 27:  // esc key
       closeModal(event);
+      break;
+    case 9:   // tab key
+      if (currEl === lastTabbableEl && !event.shiftKey) {
+        event.preventDefault();
+        firstTabbableEl.focus();
+      }
+      if (currEl === firstTabbableEl && event.shiftKey ) {
+        event.preventDefault();
+        lastTabbableEl.focus();
+      }
       break;
     default:
       break;
