@@ -69,6 +69,7 @@ function closeModal (event) {
   window.scrollTo(0, scrollTop);
 
   unsetInertness();
+  btnVoc.focus();
 }
 
 /**
