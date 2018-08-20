@@ -40,6 +40,7 @@ function openModal (event) {
   document.body.style.top = (document.documentElement.scrollTop || document.body.scrollTop) * -1 + 'px';
   document.documentElement.classList.add('in-modal');
   setInertness(modal);
+  modal.hidden = false;
   firstTabbaleEl.focus();
 }
 
@@ -68,6 +69,7 @@ function closeModal (event) {
   document.documentElement.classList.remove('in-modal');
   window.scrollTo(0, scrollTop);
 
+  modal.hidden = true;
   unsetInertness();
   btnVoc.focus();
 }
