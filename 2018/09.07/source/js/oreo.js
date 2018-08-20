@@ -37,9 +37,9 @@ function openModal (event) {
   // register event handler:
   // when key is stroked, perform the action appropriate to each situation
   document.addEventListener("keydown", bindKeyEvt, false);
-
   document.body.style.top = (document.documentElement.scrollTop || document.body.scrollTop) * -1 + 'px';
   document.documentElement.classList.add('in-modal');
+  setInertness(modal);
   firstTabbaleEl.focus();
 }
 
@@ -67,6 +67,8 @@ function closeModal (event) {
   document.body.removeAttribute('style');
   document.documentElement.classList.remove('in-modal');
   window.scrollTo(0, scrollTop);
+
+  unsetInertness();
 }
 
 /**
@@ -98,5 +100,35 @@ function bindKeyEvt (event) {
       break;
     default:
       break;
+  }
+}
+
+/**
+ * @function setInertness
+ * @param {HTMLElement} dialog the element used as dialog
+ *
+ * let elements to be inert except dialog
+ */
+function setInertness (dialog) {
+  var ommits = ["script", "meta", "link", "style", "base"];
+  for(var i = -1, node; node = dialog.parentNode.children[++i];){
+    if(node == dialog || ommits.indexOf(node.tagName.toLowerCase()) > -1)
+      continue;
+    node.setAttribute("aria-hidden", "true");
+    node.setAttribute("inert", "");
+  }
+}
+
+/**
+ * @function unsetInertness
+ * @param {HTMLElement} dialog the element used as dialog
+ *
+ * unset inert from elements
+ */
+function unsetInertness () {
+  var nodes = document.querySelectorAll('[inert]');
+  for(var i = -1, node = null; node = nodes[++i];){
+    node.removeAttribute('aria-hidden');
+    node.removeAttribute('inert');
   }
 }
